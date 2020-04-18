@@ -20,7 +20,17 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "タスク「#{task.name}」を登録しました。"
   end
 
+  #受信したデータと一致するデータを検索し、編集画面へ表示する
   def edit
+    @task = Task.find(params[:id])
+  end
+
+  #更新処理を行う
+  def update
+    task = Task.find(params[:id])
+    #正常データのみを抽出し、DBを更新
+    task.update!(task_params)
+    redirect_to tasks_url, notice: "タスク「#{task.name}」を更新しました。"
   end
 
   # ここから下はプライベートメソッド
