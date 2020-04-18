@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   def edit
   end
 
-  # ここから下はプライぺーとメソッド
+  # ここから下はプライベートメソッド
   private
 
   # Strong Parametersという仕組み(不正データが登録・更新されることを防ぐ)を使用している
