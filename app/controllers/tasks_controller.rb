@@ -11,11 +11,13 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
+    #DBへ保存
     task.save!
+    #リダイレクト処理
     redirect_to tasks_url, notice: "タスク「#{task.name}」を登録しました。"
   end
 
-  def edit
+  def editgit 
   end
 
   # ここから下はプライぺーとメソッド
