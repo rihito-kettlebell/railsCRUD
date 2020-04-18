@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   end
 
   def show
+    #idによって、DBからマッチするレコードを取得する
+    @task = Task.find(params[:id])
   end
 
   def new
