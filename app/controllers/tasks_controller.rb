@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "タスク「#{task.name}」を登録しました。"
   end
 
-  def editgit 
+  def edit
   end
 
   # ここから下はプライぺーとメソッド
