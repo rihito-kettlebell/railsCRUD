@@ -83,3 +83,6 @@ test:
 production:
   <<: *default
   database: railsCRUD_production
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
