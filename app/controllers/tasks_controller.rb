@@ -12,12 +12,16 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  #登録処理を行う
   def create
-    task = Task.new(task_params)
+    @task = Task.new(task_params)
     #DBへ保存
-    task.save!
+    if @task.save
     #リダイレクト処理
-    redirect_to tasks_url, notice: "タスク「#{task.name}」を登録しました。"
+      redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
+    else
+      render :new
+    end
   end
 
   #受信したデータと一致するデータを検索し、編集画面へ表示する
