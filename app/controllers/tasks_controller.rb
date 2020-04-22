@@ -35,14 +35,14 @@ class TasksController < ApplicationController
     #
     #正常データのみを抽出し、DBを更新
     @task.update!(task_params)
-    redirect_to tasks_url, notice: "タスク「#{task.name}」を更新しました。"
+    redirect_to tasks_url, notice: "タスク「#{@task.name}」を更新しました。"
   end
 
   #削除処理を行う
   def destroy
     #
     @task.destroy
-    redirect_to tasks_url, notice: "タスク「#{task.name}」を削除しました。"
+    redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
   end
 
   # ここから下はプライベートメソッド

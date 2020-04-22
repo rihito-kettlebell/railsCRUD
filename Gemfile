@@ -63,3 +63,4 @@ gem 'rails-i18n'
 gem 'rubocop-config-rufo'
 gem 'rubocop-config-prettier'
 gem 'slim_lint', require: false
+gem 'rails_autolink'
