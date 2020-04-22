@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    #Task.where(user_id: current_user.id)
+    @tasks = current_user.tasks
   end
 
   def show
     #idによって、DBからマッチするレコードを取得する
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def new
@@ -26,12 +27,12 @@ class TasksController < ApplicationController
 
   #受信したデータと一致するデータを検索し、編集画面へ表示する
   def edit
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   #更新処理を行う
   def update
-    task = Task.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     #正常データのみを抽出し、DBを更新
     task.update!(task_params)
     redirect_to tasks_url, notice: "タスク「#{task.name}」を更新しました。"
@@ -39,7 +40,7 @@ class TasksController < ApplicationController
 
   #削除処理を行う
   def destroy
-    task = Task.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     task.destroy
     redirect_to tasks_url, notice: "タスク「#{task.name}」を削除しました。"
   end
