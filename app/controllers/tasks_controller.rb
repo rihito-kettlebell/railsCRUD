@@ -14,7 +14,7 @@ class TasksController < ApplicationController
 
   #登録処理を行う
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     #DBへ保存
     if @task.save
     #リダイレクト処理
