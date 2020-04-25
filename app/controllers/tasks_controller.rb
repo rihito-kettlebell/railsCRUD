@@ -47,6 +47,13 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
   end
 
+  #オリジナルのロガーの作成メソッド
+  # def task_logger
+  #   @task_logger ||= Logger.new('log/task.log', 'daily')
+  # end
+
+  # task_logger.debug 'taskのログを出力'
+
   # ここから下はプライベートメソッド
   private
 

@@ -62,4 +62,7 @@ Rails.application.configure do
   # application common logger
   config.logger = Logger.new('log/development.log', 'daily')
   config.custom_logger = Logger.new('log/custom.log', 'weekly')
+  config.logger.formatter = proc { |severity, timestamp, progname, message|
+    "#{timestamp} :#{severity}: #{message}\n"
+  }
 end
