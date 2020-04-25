@@ -19,6 +19,8 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     #DBへ保存
     if @task.save
+      #ログの出力を設定
+      logger.debug "タスクデバッグtask: #{@task.attributes.inspect}"
     #リダイレクト処理
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
