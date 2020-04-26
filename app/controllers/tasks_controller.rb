@@ -54,6 +54,12 @@ class TasksController < ApplicationController
 
   # task_logger.debug 'taskのログを出力'
 
+  #　確認画面表示
+  def confirm_new
+    @task = current_user.tasks.new(task_params)
+    render :new unless @task.valid?
+  end
+
   # ここから下はプライベートメソッド
   private
 
