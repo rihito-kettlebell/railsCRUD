@@ -17,6 +17,13 @@ class TasksController < ApplicationController
   #登録処理を行う
   def create
     @task = current_user.tasks.new(task_params)
+
+    #戻る機能の追加
+    if params[:back].present?
+      render :new
+      return
+    end
+
     #DBへ保存
     if @task.save
       #ログの出力を設定
