@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   #指定したメソッドの処理を共通化できる
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
-    #Task.where(user_id: current_user.id)
-    @tasks = current_user.tasks.order(created_at: :desc)
+    @q = current_user .tasks.ransack(params[:q])
+    @tasks = @q.result(distinct: true).recent
   end
 
   def show
