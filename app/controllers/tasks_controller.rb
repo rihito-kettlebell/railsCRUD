@@ -26,6 +26,7 @@ class TasksController < ApplicationController
 
     #DBへ保存
     if @task.save
+      TaskMailer.creation_email(@task).deliver_now
       #ログの出力を設定
       logger.debug "タスクデバッグtask: #{@task.attributes.inspect}"
     #リダイレクト処理
