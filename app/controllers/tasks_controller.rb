@@ -73,7 +73,7 @@ class TasksController < ApplicationController
 
   # Strong Parametersという仕組み(不正データが登録・更新されることを防ぐ)を使用している
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :image)
   end
 
   def set_task
