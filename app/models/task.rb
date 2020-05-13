@@ -30,6 +30,14 @@ class Task < ApplicationRecord
     end
   end
 
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      task = new
+      task.attriributes = row.to_hash.slice(*csv_attributes)
+      task.save!
+    end
+  end
+
   private
 
   # before_validationのコールバックとして呼ぶ
