@@ -95,6 +95,18 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.0)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
+      actionview
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
+      activerecord
+      kaminari-core (= 1.2.0)
+    kaminari-core (1.2.0)
     loofah (2.5.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -274,6 +286,7 @@ DEPENDENCIES
   factory_bot_rails (~> 4.11)
   html2slim
   jbuilder (~> 2.5)
+  kaminari
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.1)
