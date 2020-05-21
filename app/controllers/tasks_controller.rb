@@ -56,7 +56,6 @@ class TasksController < ApplicationController
   #削除処理を行う
   def destroy
     @task.destroy
-    head :no_content
   end
 
   #オリジナルのロガーの作成メソッド
