@@ -69,3 +69,4 @@ gem 'slim_lint', require: false
 gem 'rails_autolink'
 gem 'ransack'
 gem 'kaminari'
+gem 'webpacker'
